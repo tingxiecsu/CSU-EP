@@ -72,7 +72,7 @@ class ModalTrain(object):
 
     def train(self):
         #Dataloaders
-        model = EIMSBERT(self.config["model_config"])
+        model = EIMSBERT()
         model = model.to(self.device)
         model = self._load_pre_trained_weights(model)
 
