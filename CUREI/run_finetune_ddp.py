@@ -58,8 +58,8 @@ def main(rank, world_size, num_gpus, rank_is_set, ds_args):
     
     dataset = DataSetWrapper(world_size,rank, config['batch_size'], **config['dataset'])
 
-    simclr = ModalTrain(dataset, config,device,world_size,rank)
-    simclr.train()
+    finetuning = ModalTrain(dataset, config,device,world_size,rank)
+    finetuning.train()
 
 
 if __name__ == "__main__":
