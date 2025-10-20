@@ -7,11 +7,7 @@ This is the official code repository for the paper **"Contrastive Alignment of S
 
 We developed a method named **CUREI** to bridge simulated and experimental EI-MS spectra through **self-supervised pretraining** and **contrastive fine-tuning**, enabling robust **cross-domain spectral alignment** and **accurate compound identification**.
 
-<p align="center">
-  <img src="https://github.com/tingxiecsu/CUREI/blob/main/img/logo.png" width="200">
-</p>
-
-### ?? Overview
+### ?? ### ?? Overview
 
 CUREI introduces a unified framework that jointly learns representations from both simulated and experimental spectra, capturing domain-invariant features to enhance library matching accuracy. The method achieves state-of-the-art performance on public benchmarks and supports large-scale database retrieval.
 
