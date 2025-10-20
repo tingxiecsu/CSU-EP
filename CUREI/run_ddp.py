@@ -59,8 +59,8 @@ def main(rank, world_size, num_gpus, rank_is_set, ds_args):
     
     dataset = DataSetWrapper(world_size,rank, config['batch_size'], **config['dataset'])
 
-    pretrain = ModalTrain(dataset, config,device,world_size,rank)
-    pretrain.train()
+    pretraining = ModalTrain(dataset, config,device,world_size,rank)
+    pretraining.train()
 
 
 if __name__ == "__main__":
