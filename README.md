@@ -1,6 +1,6 @@
 # CUREI
 <p align="center">
-  <img src="https://github.com/tingxiecsu/CUREI/blob/main/img/logo.png" width="300">
+  <img src="https://github.com/tingxiecsu/CSU-EP/blob/main/img/logo.jpg" width="300">
 </p>
 
 This is the official code repository for the paper **"Contrastive Alignment of Simulated and Experimental Electron Ionization Mass Spectra for High-Fidelity Library Matching."** We developed a method named **CUREI** to bridge simulated and experimental EI-MS spectra through **self-supervised pretraining** and **contrastive fine-tuning**, enabling robust **cross-domain spectral alignment** and **accurate compound identification**.
