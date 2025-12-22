@@ -1,9 +1,9 @@
-# CUREI
+# CSU-EP
 <p align="center">
   <img src="https://github.com/tingxiecsu/CSU-EP/blob/main/img/logo.jpg" width="300">
 </p>
 
-This is the official code repository for the paper **"Contrastive Alignment of Simulated and Experimental Electron Ionization Mass Spectra for High-Fidelity Library Matching."** We developed a method named **CUREI** to bridge simulated and experimental EI-MS spectra through **self-supervised pretraining** and **contrastive fine-tuning**, enabling robust **cross-domain spectral alignment** and **accurate compound identification**.
+This is the official code repository for the paper **"CSU-EP: Contrastive Learning between Experimental and Predicted Electron Ionization Spectra for Efficient In-silico Library Matching."** We developed a method named **CSU-EP** to bridge simulated and experimental EI-MS spectra through **self-supervised pretraining** and **contrastive fine-tuning**, enabling robust **cross-domain spectral alignment** and **accurate compound identification**.
 
 ### 🔍 Overview
 
@@ -20,7 +20,7 @@ Key highlights:
 
 ## Setup
 
-We have fully documented the environment used to train CUREI, which can be installed on a GPU-equipped machine with the following commands:
+We have fully documented the environment used to train CSU-EP, which can be installed on a GPU-equipped machine with the following commands:
 
 ```bash
 conda env create -f environment.yaml
@@ -33,19 +33,19 @@ pip install "flash_attn==2.6.3" --no-build-isolation
 ```
 
 ## Training
-Pretrain and fine-tune the model based on your own spectrum datasets with [run_ddp.py](https://github.com/tingxiecsu/CUREI/blob/main/CUREI/run_ddp.py) function and [run_finetune_ddp.py](https://github.com/tingxiecsu/CUREI/blob/main/CUREI/run_finetune_ddp.py). Multi-gpu or multi-node parallel training can be performed using Distributed Data Parallel (DDP) provided in the code.
+Pretrain and fine-tune the model based on your own spectrum datasets with [run_ddp.py](https://github.com/tingxiecsu/CSU-EP/blob/main/CSU-EP/run_ddp.py) function and [run_finetune_ddp.py](https://github.com/tingxiecsu/CSU-EP/blob/main/CSU-EP/run_finetune_ddp.py). Multi-gpu or multi-node parallel training can be performed using Distributed Data Parallel (DDP) provided in the code.
 
     main(rank, world_size, num_gpus, rank_is_set, ds_args)
 
 ## 🧩 Usage Example: Compute new spectrum embeddings & library search
 
-The **CUREI** framework supports computing spectral embeddings for newly collected EI-MS data and performing large-scale retrieval using a pre-built **HNSW index** (≈2 million spectra).
+The **CSU-EP** framework supports computing spectral embeddings for newly collected EI-MS data and performing large-scale retrieval using a pre-built **HNSW index** (≈2 million spectra).
 There are two main scripts involved:
 
-1. **[`calculate_embeddings.py`](https://github.com/tingxiecsu/CUREI/blob/main/calculate_embeddings.py)**  
-   → Generates embeddings for new mass spectra using the trained CUREI model.
+1. **[`calculate_embeddings.py`](https://github.com/tingxiecsu/CSU-EP/blob/main/calculate_embeddings.py)**  
+   → Generates embeddings for new mass spectra using the trained CSU-EP model.
 
-2. **[`hnswlib_index_searching.py`](https://github.com/tingxiecsu/CUREI/blob/main/hnswlib_index_searching.py)**  
+2. **[`hnswlib_index_searching.py`](https://github.com/tingxiecsu/CSU-EP/blob/main/hnswlib_index_searching.py)**  
    → Performs similarity-based search in the HNSW index to retrieve top candidate molecules.
 
 ### 1️⃣ Generate Spectrum Embeddings
@@ -59,7 +59,7 @@ You can compute embeddings for a list of new spectra (e.g., in `.mgf` format) as
             return_dict=True
         )
         output_feats = output.last_hidden_state  # shape: (B, L, D)
-        output_aggr_feats = model.esa(output_feats,attention_mask_batch)
+        output_aggr_feats = model.pooler(output_feats,attention_mask_batch)
         output_aggr_feats = model.proj(output_aggr_feats)
         spectrum_embeddings = F.normalize(output_aggr_feats, dim=1)
 	    
@@ -91,16 +91,16 @@ Once embeddings are generated, you can search the HNSW-based CUREI database:
 
 ### 🧪 Web Server
 
-We provide an online **CUREI Web Server** that allows users to:
+We provide an online **CSU-EP Web Server** that allows users to:
 - Upload EI-MS spectra in `.msp` format or manually input peak data.  
-- Retrieve top candidate molecules from the CUREI spectral library.  
+- Retrieve top candidate molecules from the CSU-EP spectral library (CSU-EP-ED).  
 - Visualize experimental and predicted spectra interactively.  
 
-The CUREI web server and CUREIDB are hosted on Hugging Face, and can be visited through the following links:
+The CSU-EP web server and CSU-EP-ED are hosted on Hugging Face, and can be visited through the following links:
 
-- 🌐 **CUREI web server**: The application interface allows users to upload unknow spectra and accsess results in real time. Visit the app here: [CUREI web server](https://huggingface.co/spaces/Tingxie/CUREI).
+- 🌐 **CSU-EP web server**: The application interface allows users to upload unknow spectra and accsess results in real time. Visit the app here: [CSU-EP web server](https://huggingface.co/spaces/Tingxie/CSU-EP).
 
-- 📂 **CUREIDB**: Explore the dataset here: [CUREIDB](https://huggingface.co/datasets/Tingxie/CUREIDB).
+- 📂 **CSU-EP-ED**: Explore the dataset here: [CSU-EP-DB](https://huggingface.co/datasets/Tingxie/CSU-EP-DB).
 
 
 ---
