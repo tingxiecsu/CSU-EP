@@ -93,14 +93,14 @@ Once embeddings are generated, you can search the HNSW-based CUREI database:
 
 We provide an online **CSU-EP Web Server** that allows users to:
 - Upload EI-MS spectra in `.msp` format or manually input peak data.  
-- Retrieve top candidate molecules from the CSU-EP spectral library (CSU-EP-ED).  
+- Retrieve top candidate molecules from the CSU-EP spectral library (CSU-EP-DB).  
 - Visualize experimental and predicted spectra interactively.  
 
-The CSU-EP web server and CSU-EP-ED are hosted on Hugging Face, and can be visited through the following links:
+The CSU-EP web server and CSU-EP-DB are hosted on Hugging Face, and can be visited through the following links:
 
 - 🌐 **CSU-EP web server**: The application interface allows users to upload unknow spectra and accsess results in real time. Visit the app here: [CSU-EP web server](https://huggingface.co/spaces/Tingxie/CSU-EP).
 
-- 📂 **CSU-EP-ED**: Explore the dataset here: [CSU-EP-DB](https://huggingface.co/datasets/Tingxie/CSU-EP-DB).
+- 📂 **CSU-EP-DB**: Explore the dataset here: [CSU-EP-DB](https://huggingface.co/datasets/Tingxie/CSU-EP-DB).
 
 
 ---
