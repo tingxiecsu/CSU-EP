@@ -1,0 +1,23 @@
+batch_size: 330
+epochs: 600
+eval_every_n_epochs: 2
+fine_tune_from: "pretrain/"
+log_every_n_steps: 2
+learning_rate: 5e-06
+gradient_accumulation_steps: 4
+betas: (0.9, 0.98)
+eps: 1e-06
+weight_decay: 0.001
+warmup_ratio: 0.05
+stable_ratio: 0.6
+min_lr_ratio: 1e-09
+num_cycles: 0.5
+
+dataset:
+  num_workers: 0
+  valid_size: 0.2
+  train_ms_file: "train.mgf"
+  train_ms_pre_file: "train_pred.mgf"
+  valid_ms_file: "valid.mgf"
+  valid_ms_pre_file: "valid_pred.mgf"
+
