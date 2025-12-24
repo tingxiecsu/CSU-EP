@@ -1,5 +1,5 @@
 import torch
-from model_finetune import EIMSBERT
+from model_finetune import CSUEP_finetune
 from matchms.exporting import save_as_mgf
 import numpy as np
 import os
@@ -29,7 +29,7 @@ test=[s for s in test if s is not None]
 model_path ="/checkpoints/model.pth"
 device = torch.device('cpu')
 state_dict = torch.load(model_path,map_location=device)
-model = EIMSBERT()
+model = CSUEP_finetune()
 model.load_state_dict(state_dict)
 model.to(device) 
 model.eval()
