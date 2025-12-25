@@ -86,7 +86,7 @@ for i in tqdm(range(0, len(test), batch_size)):
             return_dict=True
         )
         output_feats = output.last_hidden_state  # shape: (B, L, D)
-        output_aggr_feats = model.esa(output_feats,attention_mask_batch)
+        output_aggr_feats = model.pooler(output_feats,attention_mask_batch)
         output_aggr_feats = model.proj(output_aggr_feats)
         spectrum_embeddings = F.normalize(output_aggr_feats, dim=1)
         test_vectors.extend(spectrum_embeddings.detach().cpu().numpy())
