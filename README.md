@@ -45,7 +45,7 @@ There are two main scripts involved:
 1. **[`calculate_embeddings.py`](https://github.com/tingxiecsu/CSU-EP/blob/main/calculate_embeddings.py)**  
    → Generates embeddings for new mass spectra using the trained CSU-EP model.
 
-2. **[`hnswlib_index_searching.py`](https://github.com/tingxiecsu/CSU-EP/blob/main/hnswlib_index_searching.py)**  
+2. **[`hnswlib_index_searching.py`](https://github.com/tingxiecsu/CSU-EP/blob/main/hnsw_index_buliding.py)**  
    → Performs similarity-based search in the HNSW index to retrieve top candidate molecules.
 
 ### 1️⃣ Generate Spectrum Embeddings
