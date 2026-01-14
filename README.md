@@ -7,7 +7,7 @@ This is the official code repository for the paper **"CSU-EP: Contrastive Learni
 
 ### 🔍 Overview
 
-CUREI introduces a unified framework that jointly learns representations from both simulated and experimental spectra, capturing domain-invariant features to enhance library matching accuracy. The method achieves state-of-the-art performance on public benchmarks and supports large-scale database retrieval.
+CSU-EP introduces a unified framework that jointly learns representations from both simulated and experimental spectra, capturing domain-invariant features to enhance library matching accuracy. The method achieves state-of-the-art performance on public benchmarks and supports large-scale database retrieval.
 
 Key highlights:
 - 🚀 **FlashAttention** acceleration for large-batch training
@@ -65,12 +65,12 @@ You can compute embeddings for a list of new spectra (e.g., in `.mgf` format) as
 	    
 
 ### 2️⃣ Search with HNSW Index
-Once embeddings are generated, you can search the HNSW-based CUREI database:
+Once embeddings are generated, you can search the HNSW-based CSU-EP database:
 
     xq= load_npz("/meassured_spectra_embeddings.npz").todense().astype('float32')
     xq_len = np.linalg.norm(xq, axis=1, keepdims=True)
     xq = xq/xq_len
-    dim = 256
+    dim = 768
     start_time=time.time()*1000
     p = hnswlib.Index(space='l2', dim=dim) 
     p.load_index("references_index.bin")
@@ -93,7 +93,7 @@ Once embeddings are generated, you can search the HNSW-based CUREI database:
 
 We provide an online **CSU-EP Web Server** that allows users to:
 - Upload EI-MS spectra in `.msp` format or manually input peak data.  
-- Retrieve top candidate molecules from the CSU-EP spectral library (CSU-EP-DB).  
+- Retrieve top candidate molecules from the CSU-EP spectral embedding database (CSU-EP-DB).  
 - Visualize experimental and predicted spectra interactively.  
 
 The CSU-EP web server and CSU-EP-DB are hosted on Hugging Face, and can be visited through the following links:
