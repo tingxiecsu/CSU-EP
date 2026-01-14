@@ -9,7 +9,7 @@ xb= load_npz("/predicted_spectra_embeddings.npz").todense().astype('float32')
 xb_len =  np.linalg.norm(xb, axis=1, keepdims=True)
 print(xb.shape[1])
 xb = xb/xb_len
-dim = 256
+dim = 768
 num_elements =len(xb)
 ids = np.arange(num_elements)
 # Declaring index
