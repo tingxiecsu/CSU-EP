@@ -7,10 +7,10 @@ import pickle
 xq= load_npz("/meassured_spectra_embeddings.npz").todense().astype('float32')
 xq_len = np.linalg.norm(xq, axis=1, keepdims=True)
 xq = xq/xq_len
-dim = 256
+dim = 768
 start_time=time.time()*1000
 p = hnswlib.Index(space='l2', dim=dim) 
-p.load_index("CUREIDB/references_index.bin", max_elements =2166721)
+p.load_index("CUREIDB/references_index.bin")
 end_time=time.time()*1000
 print('loadindex_time %.4f'%((end_time-start_time)/100))
 import time
