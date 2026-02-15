@@ -3,7 +3,7 @@
   <img src="https://github.com/tingxiecsu/CSU-EP/blob/main/img/logo.jpg" width="300">
 </p>
 
-This is the official code repository for the paper **"CSU-EP: Contrastive Learning between Experimental and Predicted Electron Ionization Spectra for Efficient In-silico Library Matching."** We developed a method named **CSU-EP** to bridge simulated and experimental EI-MS spectra through **self-supervised pretraining** and **contrastive fine-tuning**, enabling robust **cross-domain spectral alignment** and **accurate compound identification**.
+This is the official code repository for the paper **"CSU-EP: Contrastive Learning for Unifying Experimental and Predicted EI-MS Spectra."** We developed a method named **CSU-EP** to bridge simulated and experimental EI-MS spectra through **self-supervised pretraining** and **contrastive fine-tuning**, enabling robust **cross-domain spectral alignment** and **accurate compound identification**.
 
 ### 🔍 Overview
 
