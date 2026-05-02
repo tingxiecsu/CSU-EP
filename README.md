@@ -100,6 +100,8 @@ The CSU-EP web server and CSU-EP-DB are hosted on Hugging Face, and can be visit
 
 - 🌐 **CSU-EP web server**: The application interface allows users to upload unknow spectra and accsess results in real time. Visit the app here: [CSU-EP web server](https://huggingface.co/spaces/Ting20251112/CSU-EP).
 
+### 🧪 CSU-EP-DB
+
 - 📂 **CSU-EP-DB**: Explore the dataset here: [CSU-EP-DB](https://huggingface.co/datasets/Ting20251112/CSU-EP-DB).
 
 
